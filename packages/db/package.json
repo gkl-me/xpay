@@ -1,0 +1,22 @@
+{
+  "name": "@repo/db",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "generate": "pnpx generate prisma",
+    "migrate": "pnpx migrate dev",
+    "studio": "pnpx studio"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@repo/typescript-config": "workspace:*",
+    "prisma": "6.9.0"
+  },
+  "dependencies": {
+    "@prisma/client": "6.9.0"
+  }
+}
