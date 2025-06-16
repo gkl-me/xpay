@@ -18,7 +18,77 @@ datasource db {
 model User {
   id        String   @id @default(uuid())
   name      String
+  email     String   @unique
+  password  String
+  phone     String       @unique
+  balance   Float     @default(0.0)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
+  transactions Transaction[]
+  sentTransactions P2PTransaction[] @relation("Sender")
+  receivedTransactions P2PTransaction[] @relation("Receiver")
+
+  @@index([email])
+  @@index([phone])
+  @@index([createdAt])
+
+}
+
+
+model Transaction{
+  id          String   @id @default(uuid())
+  userId      String
+  type        TransactionType
+  amount      Float
+  status      TransactionStatus
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  razorpayOrderId String? @unique
+  razorpayPaymentId String? @unique
+
+  user        User     @relation(fields: [userId], references: [id])
+
+  @@index([userId, createdAt])
+  @@index([userId])
+  @@index([type, status])
+  @@index([createdAt])
+  @@index([type])
+  @@index([status])
+
+}
+
+
+model P2PTransaction {
+  id     String  @id @default(uuid())
+  senderId String
+  receiverId String
+  amount Float
+  status TransactionStatus
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+
+  sender User @relation("Sender", fields: [senderId], references: [id])
+  receiver User @relation("Receiver", fields: [receiverId], references: [id])
+
+  @@index([senderId, createdAt])
+  @@index([receiverId, createdAt])
+  @@index([senderId])
+  @@index([receiverId])
+  @@index([status])
+  @@index([createdAt])
+}
+
+
+enum TransactionType {
+  CREDIT
+  DEBIT
+}
+
+enum TransactionStatus {
+  PENDING
+  COMPLETED
+  FAILED
 }
