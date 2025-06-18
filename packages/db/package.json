@@ -2,12 +2,12 @@
   "name": "@repo/db",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "./dist/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "generate": "pnpx generate prisma",
-    "migrate": "pnpx migrate dev",
-    "studio": "pnpx studio"
+    "build":"pnpx prisma generate && tsc",
+    "dev":"pnpx prisma generate"
   },
   "keywords": [],
   "author": "",
@@ -18,5 +18,8 @@
   },
   "dependencies": {
     "@prisma/client": "6.9.0"
+  },
+  "exports": {
+    ".": "./dist/index.js"
   }
 }

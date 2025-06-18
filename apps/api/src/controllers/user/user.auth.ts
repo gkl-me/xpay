@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import primsa from '@repo/db/src/index'
+import primsa from '@repo/db'
 import { generateToken } from '../../utils/tokenManager';
 import { comparePassword, hashPassword } from '../../utils/passwordHasher';
 import {loginUserSchema, registerUserSchema} from '@repo/common'
