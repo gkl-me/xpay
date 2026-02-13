@@ -12,7 +12,10 @@ app.get("/", async (req, res) => {
             }
         });
         console.log("User created:", users);
-        res.send(users);
+        res.json({
+            message:"hello ",
+            users
+        })
     } catch (error: any) {
         console.error("Error creating user:", error);
         res.status(500).send({ error: error.message });
