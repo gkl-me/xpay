@@ -1,0 +1,33 @@
+# xpay Application Roadmap
+
+## Phase 1: Authentication & User Management
+- [ ] Implement Google OAuth in `api` backend <!-- id: 4 -->
+- [ ] Set up Google Login in `web` frontend <!-- id: 5 -->
+- [ ] Expand Prisma schema: `User` model improvements (name, avatar, status) <!-- id: 6 -->
+- [ ] Implement Profile Management (view/edit user details) <!-- id: 7 -->
+
+## Phase 2: Wallet System & Razorpay Integration
+- [ ] Add `balance` and `transaction` entities to Prisma schema <!-- id: 8 -->
+- [ ] Integrate Razorpay for depositing "paper money" <!-- id: 9 -->
+- [ ] Implement Withdrawal functionality using Razorpay Payouts (simulated) <!-- id: 10 -->
+- [ ] Create Balance display and transaction history in frontend <!-- id: 11 -->
+
+## Phase 3: Money Transfers & QR Payments
+- [ ] Implement P2P transfers using Email or Unique User ID <!-- id: 12 -->
+- [ ] Add QR Code generation for each user <!-- id: 13 -->
+- [ ] Implement QR Code scanning and payment flow <!-- id: 14 -->
+- [ ] Real-time transaction notifications (optional but recommended) <!-- id: 15 -->
+
+## Phase 4: Admin Dashboard & Logging
+- [ ] Set up Admin roles and permissions <!-- id: 16 -->
+- [ ] Implement robust Logging system in backend for audit trails <!-- id: 17 -->
+- [ ] Create Admin interface to:
+    - [ ] Freeze/Unfreeze accounts <!-- id: 18 -->
+    - [ ] Manually adjust user balances <!-- id: 19 -->
+    - [ ] View application-wide logs and user activity <!-- id: 20 -->
+    - [ ] Handle enquiry listing and responses <!-- id: 21 -->
+
+## Phase 5: Polish & Security
+- [ ] Implement proper error handling and centralized logging <!-- id: 22 -->
+- [ ] Enhance UI/UX with premium designs and micro-animations <!-- id: 23 -->
+- [ ] Security audits for financial transactions and sensitive routes <!-- id: 24 -->
